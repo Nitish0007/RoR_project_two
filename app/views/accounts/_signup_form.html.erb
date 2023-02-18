@@ -1,0 +1,56 @@
+<%= form_with(model: @user, url: signup) do |form| %>
+<% if @user.errors.any? %>
+<div class="error_explanation">
+<h3><%= pluralize(@user.errors.count, "error") %> prevented form being saved</h3>
+<ul>
+<% @user.errors.full_messages.each do |message| %>
+<li><%= message %></li>
+<% end %>
+</ul>
+</div>
+<% end %>
+
+<h3>Signup</h3>
+
+<div class="wrapper-field">
+<div class="field">
+ <%= form.label :first_name %>
+ <%= form.text_field :first_name %>
+</div>
+<div class="field">
+ <%= form.label :last_name %>
+ <%= form.text_field :last_name %>
+</div>
+</div>
+
+<div class="field">
+ <%= form.label :email %>
+ <%= form.text_field :email %>
+</div>
+
+<div class="field">
+ <%= form.label :mobile %>
+ <%= form.text_field :mobile %>
+</div>
+
+<div class="field">
+ <%= form.label :dob %>
+ <%= form.date_field :dob %>
+</div>
+
+<div class="field">
+ <%= form.label :password %>
+ <%= form.password_field :password %>
+</div>
+
+<div class="field">
+ <%= form.label :confirm_password %>
+ <%= form.password_field :password_confirmation %>
+</div>
+
+
+ <%= tag.span form.submit "Sign Up", class:'submit_btn' %>
+
+<p class="link"> Already have an account? <%= link_to "Log In", '/accounts/login' %></p>
+
+<% end %>

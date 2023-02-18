@@ -1,0 +1,22 @@
+<%= form_with(model:@user, url: login) do |form| %>
+
+<%= flash[:notice] %>
+
+<h3>login page</h3>
+
+<div class="field">
+ <%= form.label :email %>
+ <%= form.text_field :email %>
+</div>
+<div class="field">
+ <%= form.label :password %>
+ <%= form.password_field :password %>
+</div>
+<p class="link"><%= link_to "Forgot Password?", "/password/forgot_password" %></p>
+
+
+ <%= tag.span form.submit 'Login', class:'submit_btn' %>
+
+<p class="link">New User? <%= link_to "Sign Up", '/accounts/signup' %></p>
+
+<% end %>
